@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controler.AdminControler">
+	<children>
+		<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+			<left>
+				<Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<children>
+						<Button fx:id="showDemandBtn" layoutX="10.0" layoutY="386.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Afficher liste des demandes" />
+						<Button fx:id="showStudentBtn" layoutX="10.0" layoutY="309.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showStudent" prefHeight="27.0" prefWidth="180.0" text="Afficher liste d'étudiants">
+							<padding>
+								<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+							</padding>
+						</Button>
+						<Button fx:id="showCompanyBtn" layoutX="10.0" layoutY="336.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showCompany" prefHeight="25.0" prefWidth="180.0" text="Afficher liste entreprises" />
+						<Button fx:id="showOfferBtn" layoutX="10.0" layoutY="361.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Afficher liste offres" />
+						<Button fx:id="showUserBtn" layoutX="10.0" layoutY="288.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Afficher liste utilisateurs" />
+						<Button fx:id="createUserBtn" layoutX="10.0" layoutY="155.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Créer un nouvelle utilisateur" />
+					</children>
+				</Pane>
+			</left>
+			<top>
+				<MenuBar BorderPane.alignment="CENTER">
+					<menus>
+						<Menu mnemonicParsing="false" text="File">
+							<items>
+								<MenuItem mnemonicParsing="false" text="Close" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Edit">
+							<items>
+								<MenuItem mnemonicParsing="false" text="Delete" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem mnemonicParsing="false" text="About" />
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+			</top>
+			<center>
+				<AnchorPane prefHeight="574.0" prefWidth="599.0" BorderPane.alignment="CENTER">
+					<children>
+						<TableView fx:id="studentTableView" layoutX="-1.0" layoutY="50.0" prefHeight="460.0" prefWidth="700.0" visible="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+							<columns>
+								<TableColumn fx:id="idStudentColumn" prefWidth="75.0" text="id" />
+								<TableColumn fx:id="nameStudentColumn" prefWidth="75.0" text="name" />
+								<TableColumn fx:id="passwrdStudentColumn" prefWidth="75.0" text="passwrd" />
+								<TableColumn fx:id="telStudentColumn" prefWidth="75.0" text="tel" />
+								<TableColumn fx:id="mailStudentColumn" prefWidth="75.0" text="mail" />
+								<TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="firstName" />
+								<TableColumn fx:id="fillColumn" prefWidth="75.0" text="fill" />
+								<TableColumn fx:id="lvlColumn" prefWidth="75.0" text="lvl" />
+							</columns>
+						</TableView>
+                  <TableView fx:id="companyTableView" layoutY="49.0" prefHeight="460.0" prefWidth="700.0">
+                    <columns>
+                      <TableColumn fx:id="idCompanyColumn" prefWidth="75.0" text="id" />
+                      <TableColumn fx:id="nameCompanyColumn" prefWidth="75.0" text="name" />
+                        <TableColumn fx:id="passwrdCompanyColumn" prefWidth="75.0" text="passwrd" />
+                        <TableColumn fx:id="telCompanyColumn" prefWidth="75.0" text="tel" />
+                        <TableColumn fx:id="mailCompanyColuln" prefWidth="75.0" text="mail" />
+                        <TableColumn fx:id="cityColumn" prefWidth="75.0" text="ville" />
+                        <TableColumn fx:id="streetColumn" prefWidth="75.0" text="rue" />
+                        <TableColumn fx:id="postaleColumn" prefWidth="75.0" text="postale" />
+                        <TableColumn fx:id="fieldColumn" prefWidth="75.0" text="domaine" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="setStudentBtn" layoutX="460.0" layoutY="530.0" mnemonicParsing="false" onAction="#setStudent" prefHeight="25.0" prefWidth="160.0" text="Modifier détails étudiant" />
+                  <Button fx:id="setCompanyBtn" layoutX="59.0" layoutY="530.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Modifier détails entreprise" />
+                  <Hyperlink fx:id="logoutLink" layoutX="620.0" layoutY="14.0" onAction="#disconnect" text="Log out" />
+					</children>
+				</AnchorPane>
+			</center>
+		</BorderPane>
+	</children>
+</Pane>

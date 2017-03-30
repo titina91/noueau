@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <BorderPane layoutX="-2.0" prefHeight="600.0" prefWidth="606.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="nameLabel" layoutX="181.0" layoutY="106.0" prefHeight="20.0" prefWidth="70.0" text="Name" />
+                  <TextField layoutX="261.0" layoutY="103.0" />
+                  <TextField layoutX="261.0" layoutY="188.0" />
+                  <TextField layoutX="261.0" layoutY="232.0" />
+                  <Label fx:id="passwrdLabel" layoutX="181.0" layoutY="149.0" prefHeight="20.0" prefWidth="70.0" text="Password" />
+                  <Label fx:id="nameLabel2" layoutX="181.0" layoutY="191.0" prefHeight="20.0" prefWidth="70.0" text="Tel" />
+                  <Label fx:id="nameLabel3" layoutX="181.0" layoutY="235.0" prefHeight="20.0" prefWidth="70.0" text="Mail" />
+                  <PasswordField layoutX="261.0" layoutY="147.0" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
