@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane layoutX="-2.0" prefHeight="600.0" prefWidth="606.0">
+      <BorderPane layoutX="-2.0" prefHeight="600.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <MenuBar BorderPane.alignment="CENTER">
               <menus>
@@ -33,14 +33,22 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="nameLabel" layoutX="181.0" layoutY="106.0" prefHeight="20.0" prefWidth="70.0" text="Name" />
-                  <TextField layoutX="261.0" layoutY="103.0" />
-                  <TextField layoutX="261.0" layoutY="188.0" />
-                  <TextField layoutX="261.0" layoutY="232.0" />
-                  <Label fx:id="passwrdLabel" layoutX="181.0" layoutY="149.0" prefHeight="20.0" prefWidth="70.0" text="Password" />
-                  <Label fx:id="nameLabel2" layoutX="181.0" layoutY="191.0" prefHeight="20.0" prefWidth="70.0" text="Tel" />
-                  <Label fx:id="nameLabel3" layoutX="181.0" layoutY="235.0" prefHeight="20.0" prefWidth="70.0" text="Mail" />
-                  <PasswordField layoutX="261.0" layoutY="147.0" />
+                  <Label fx:id="nameLabel" layoutX="84.0" layoutY="40.0" prefHeight="20.0" prefWidth="70.0" text="Name" />
+                  <TextField fx:id="nameField" layoutX="160.0" layoutY="37.0" />
+                  <TextField fx:id="telField" layoutX="160.0" layoutY="116.0" />
+                  <TextField fx:id="mailField" layoutX="160.0" layoutY="153.0" />
+                  <Label fx:id="passwrdLabel" layoutX="84.0" layoutY="79.0" prefHeight="20.0" prefWidth="70.0" text="Password" />
+                  <Label fx:id="nameLabel2" layoutX="84.0" layoutY="119.0" prefHeight="20.0" prefWidth="70.0" text="Tel" />
+                  <Label fx:id="nameLabel3" layoutX="84.0" layoutY="156.0" prefHeight="20.0" prefWidth="70.0" text="Mail" />
+                  <PasswordField fx:id="passwrdField" layoutX="160.0" layoutY="76.0" />
+                  <TextField fx:id="firstNameField" layoutX="160.0" layoutY="188.0" />
+                  <TextField fx:id="fillField" layoutX="160.0" layoutY="227.0" />
+                  <TextField fx:id="lvlField" layoutX="160.0" layoutY="264.0" />
+                  <Label fx:id="firstNameLabel" layoutX="84.0" layoutY="191.0" prefHeight="20.0" prefWidth="70.0" text="FirstName" />
+                  <Label fx:id="fillLabel" layoutX="84.0" layoutY="230.0" prefHeight="20.0" prefWidth="70.0" text="Filliaire" />
+                  <Label fx:id="lvlLabel" layoutX="84.0" layoutY="267.0" prefHeight="20.0" prefWidth="70.0" text="Lvl" />
+                  <Button fx:id="validationBtn" layoutX="257.0" layoutY="300.0" mnemonicParsing="false" text="Créer" />
+                  <Button fx:id="annulBtn" layoutX="160.0" layoutY="300.0" mnemonicParsing="false" text="Annulé" />
                </children>
             </Pane>
          </center>

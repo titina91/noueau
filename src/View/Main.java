@@ -21,7 +21,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 						
-			Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("View/login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("View/adminScene.fxml"));
 			primaryStage.setScene(new Scene(root));
 			primaryStage.setResizable(false);
 			primaryStage.show();

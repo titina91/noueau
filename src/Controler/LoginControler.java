@@ -48,7 +48,9 @@ public class LoginControler implements Initializable, interfaceControler{
 	PasswordField passwrdField = new PasswordField();
 	@FXML 
 	Hyperlink createLink = new Hyperlink();
-
+	
+	@FXML
+	private ComboBox<String> stateBox = new ComboBox();
 	ObservableList<String> options = 
 			FXCollections.observableArrayList(
 					"etudiant",
@@ -56,8 +58,7 @@ public class LoginControler implements Initializable, interfaceControler{
 					"admin"
 					);
 
-	@FXML
-	private ComboBox<String> stateBox = new ComboBox();
+
 
 	Connection connection;
 	int nulle = 0 ;
@@ -69,22 +70,22 @@ public class LoginControler implements Initializable, interfaceControler{
 	final String insertUser = "INSERT INTO `user` (`id`, `name`, `passwrd`, `tel`, `mail`) VALUES (?,?,?,?,?) ";
 	final String lastElement = "SELECT id FROM `user` lIMIT 1 ";
 	//final String insertStudent = "INSERT INTO `etudiant` (`id`, `name`, `passwrd`, `tel`, `mail`, `firstName`, `fill`, `lvl`) VALUES (" + "null" + ",?,?,?,?,?,?,?) ";
-	
+
 	// Constructeur
-	
+
 	public LoginControler(){
 		connection = (Connection) connexion.connection();
 
 		stateBox.setItems(options);
-		
+
 	}
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		stateBox.setItems(options);
 	}
-	
+
 	public void login(){
 		loginButton.setOnAction(new EventHandler<ActionEvent>(){
 
@@ -94,11 +95,11 @@ public class LoginControler implements Initializable, interfaceControler{
 				String idText = idField.getText();
 				String passwrdText = passwrdField.getText();
 				String state = stateBox.getValue();
-				
+
 				System.out.print(state);
-				
+
 				switch (state){
-				
+
 				case "admin":
 					if(dU.connect(state, idText, passwrdText)){
 						try{
@@ -113,7 +114,7 @@ public class LoginControler implements Initializable, interfaceControler{
 						}
 					} 
 					break;
-					
+
 				case "etudiant":
 					if(dU.connect(state, idText, passwrdText)){
 						try{
@@ -128,7 +129,7 @@ public class LoginControler implements Initializable, interfaceControler{
 						}
 					}
 					break;
-					
+
 				case "entreprise":
 					if(dU.connect(state, idText, passwrdText)){
 						try{
@@ -147,16 +148,16 @@ public class LoginControler implements Initializable, interfaceControler{
 			};
 		});
 	}
-	
 
-	
+
+
 	/*
 	@FXML
 	public void loginButton(Event event)throws Exception{
 		String state = stateBox.getValue();
 
 		System.out.println("boutton login cliqué \n" + state);
-		
+
 		switch(state){
 
 		case "entreprise":
@@ -185,39 +186,39 @@ public class LoginControler implements Initializable, interfaceControler{
 			}
 			break;
 		}
-		
+
 		/*
-		 * case "etudiant":
+	 * case "etudiant":
 			Stage primaryStage = new Stage();
 			try{
 				// localisation du fichier .fxml
 				URL url =getClass().getClassLoader().getResource("adminScene.fxml");
-				
+
 				// création du loader
 				FXMLLoader fxmlLoader = new FXMLLoader(url);
-				
+
 				// chargement du fxml
 				AnchorPane root = fxmlLoader.load();
-				
+
 				// création de la Scene
 				//Parent adminParent = FXMLLoader.load(getClass().getResource());
 				Scene adminScene = new Scene(root);
 				primaryStage.setScene(adminScene);
-				
+
 				}catch(Exception e){
 				e.printStackTrace();
 			}
-			
+
 			((Node) event.getSource()).getScene().getWindow();
 			primaryStage.hide();
 			primaryStage.show();
-			
+
 			break;
 		}
-		 
+
 	}
 
-	*/
+	 */
 
 
 
@@ -225,13 +226,13 @@ public class LoginControler implements Initializable, interfaceControler{
 	 * 
 	 * public boolean connect(String state, String id, String mdp){
 		boolean exist = false;
-		
+
 		String sql = "SELECT * FROM " + state + " WHERE " + id + " AND passwrd = '" + mdp + "'" ;
 		Statement st;
 		try {
 			st = connection.createStatement();
 			ResultSet rs = st.executeQuery(sql);
-			
+
 			while(rs.next()){
 				if(rs != null){
 					System.out.println("Existe");
@@ -240,20 +241,20 @@ public class LoginControler implements Initializable, interfaceControler{
 					exist = true;
 					}
 			}
-			
-			
+
+
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(exist);
 		return exist;
-		 
+
 	}
 	 */
-	
+
 
 
 
