@@ -1,30 +1,26 @@
 package Controler;
 
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Optional;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import metier.connexion;
 
-public class CreateCompanyControler {
+public class CreateStudentControler {
 	@FXML
 	TextField nameField;
 	@FXML
@@ -34,91 +30,98 @@ public class CreateCompanyControler {
 	@FXML
 	TextField mailField;
 	@FXML
-	TextField cityField;
+	TextField firstNameField;
 	@FXML
-	TextField streetField;
+	TextField fillField;
 	@FXML
-	TextField postaleField;
-	@FXML
-	TextField domainField;
-	@FXML
-	Button btnajouter=new Button();
-	@FXML
-	Button btnannuler = new Button();
+	TextField lvlField;
+
 	@FXML
 	Hyperlink returnBtn = new Hyperlink();
 	@FXML
-	ImageView  entreprise;
+	Button creeBtn =new Button();
+	@FXML
+	Button annuleBtn = new Button();
 	
-	Connection connection = connexion.connection();
+	@FXML
+	ImageView  students;
+	Connection connection;
 
-
-
-
-	//@SuppressWarnings("null")
+	@SuppressWarnings("null")
 	public void ajout(){
-		btnajouter.setOnAction(e->{
+		creeBtn.setOnAction(e->{
 			Alert dialogC = new Alert(AlertType.CONFIRMATION);
 			dialogC.setTitle("A confirmation ");
 			dialogC.setHeaderText(null);
-			dialogC.setContentText("Ajouter entreprise ?");
+			dialogC.setContentText("confirmation");
 			Optional<ButtonType> answer = dialogC.showAndWait();
-			
-			if (answer.get() == ButtonType.OK) {
-
+			if (answer.get() == ButtonType.OK) {	
 				PreparedStatement st =null;
-				
+				connection = (Connection) connexion.connection();
+
 				try {
-					
-					String sql =
-							" INSERT INTO entreprise "
-									+ "(`id`, `name`, `passwrd`, `tel`, `mail`, `ville`, `rue`, `postale`, `domaine`) "
-									+ "VALUES (NULL,'"
-									+ nameField.getText() +"','"
-									+ passwrdField.getText() +"','" 
-									+ telField.getText() +"','" 
-									+ mailField.getText() +"','" 
-									+ cityField.getText() +"','" 
-									+ streetField.getText() +"','" 
-									+ postaleField.getText() +"','" 
-									+ domainField.getText() +"')";
-	
-					st = (PreparedStatement)connection.prepareStatement(sql);	
-					System.out.println(sql);
-					st.executeUpdate();
-					
-					System.out.println(nameField.getText());
-				} catch (Exception e1) {
-					e1.printStackTrace();
 
+					Class.forName("com.mysql.jdbc.Driver");
+					System.out.print("ok");
+				}catch (Exception e1) {
+					System.out.println("no");
 				}
-			}
 
+				try {
+					String sql =" INSERT INTO etudiant"
+							+ " (`id`, `name`, `passwrd`, `tel`, `mail`, `firstName`, `fill`, `lvl`)"
+							+ " VALUES ("
+							+ "NULL,'"
+							+ nameField.getText() +"','" 
+							+ passwrdField.getText() +"','"
+							+ telField.getText() +"','" 
+							+ mailField.getText() +"','" 
+							+ firstNameField.getText() +"','" 
+							+ fillField.getText() +"','" 
+							+ lvlField.getText() +"')";
+
+					st = (PreparedStatement)connection.prepareStatement(sql);
+					st.executeUpdate();	 
+				} catch (Exception e1) {
+
+					e1.printStackTrace();
+				}finally{}
+
+
+			}
 			else {
 				nameField.setText("");
 				passwrdField.setText("");
 				telField.setText("");
 				mailField.setText("");
-				cityField.setText("");
-				streetField.setText("");
-				postaleField.setText("");
-				domainField.setText("");
+				firstNameField.setText("");
+				fillField.setText("");
+				lvlField.setText("");
+
 			}
+
 		});
+
+
 	}
 
 	public void annuler(){
-		btnannuler.setOnAction(e->{
+
+
+		annuleBtn.setOnAction(e->{
+			nameField.setText("");
 			nameField.setText("");
 			passwrdField.setText("");
 			telField.setText("");
 			mailField.setText("");
-			cityField.setText("");
-			streetField.setText("");
-			postaleField.setText("");
-			domainField.setText("");
+			firstNameField.setText("");
+			fillField.setText("");
+			lvlField.setText("");
 
-		});}
+		});
+
+
+	}
 	
 	public void retourner(){
 		returnBtn.setOnAction(e->{
@@ -135,4 +138,5 @@ public class CreateCompanyControler {
 			}
 		});
 	}
+
 }
