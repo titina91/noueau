@@ -138,7 +138,7 @@ public class daoEntreprise implements implementsEntreprise{
 
 	}
 
-	public void supprimerOffre(Stage s) {
+	public void supprimerOffre(Stage s) {	
 		String url=  "jdbc:mysql://localhost/gestion offre stage";												// values = {"val1 ,", "val2,", "val3,",...}*
 		String login = "root";
 		String passwd = "";

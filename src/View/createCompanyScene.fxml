@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controler.CreateCompanyControler">
+   <children>
+      <BorderPane prefHeight="688.0" prefWidth="837.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="nameField" layoutX="45.0" layoutY="55.0" prefHeight="25.0" prefWidth="249.0" promptText="Nom de  l'entreprise" />
+                  <TextField fx:id="passwrdField" layoutX="45.0" layoutY="97.0" prefHeight="25.0" prefWidth="249.0" promptText="Password" />
+                  <TextField fx:id="telField" layoutX="45.0" layoutY="137.0" prefHeight="25.0" prefWidth="249.0" promptText="tel" />
+                  <TextField fx:id="mailField" layoutX="45.0" layoutY="181.0" prefHeight="25.0" prefWidth="249.0" promptText="Mail" />
+                  <TextField fx:id="cityField" layoutX="45.0" layoutY="219.0" prefHeight="25.0" prefWidth="249.0" promptText="City" />
+                  <TextField fx:id="streetField" layoutX="45.0" layoutY="263.0" prefHeight="25.0" prefWidth="249.0" promptText="Street" />
+                  <TextField fx:id="postaleField" layoutX="45.0" layoutY="305.0" prefHeight="25.0" prefWidth="249.0" promptText="Postale" />
+                  <TextField fx:id="domainField" layoutX="45.0" layoutY="346.0" prefHeight="25.0" prefWidth="249.0" promptText="Domain" />
+                  <Button fx:id="btnajouter" layoutX="116.0" layoutY="383.0" mnemonicParsing="false" onAction="#ajout" prefHeight="25.0" prefWidth="90.0" text="Envoyer" />
+                  <Button fx:id="btnannuler" layoutX="213.0" layoutY="383.0" mnemonicParsing="false" onAction="#annuler" prefHeight="25.0" prefWidth="81.0" text="Annuler" />
+                  <Hyperlink fx:id="returnBtn" layoutX="25.0" layoutY="14.0" onAction="#retourner" text="return" />
+               </children>
+            </Pane>
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

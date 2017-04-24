@@ -148,138 +148,21 @@ public class LoginControler implements Initializable, interfaceControler{
 			};
 		});
 	}
-
-
-
-	/*
-	@FXML
-	public void loginButton(Event event)throws Exception{
-		String state = stateBox.getValue();
-
-		System.out.println("boutton login cliqué \n" + state);
-
-		switch(state){
-
-		case "entreprise":
+	
+	public void create(){
+		createLink.setOnAction(e->{
 			try{
-				Parent adminParent = FXMLLoader.load(getClass().getResource("View/adminScene.fxml"));
-				Scene adminScene = new Scene(adminParent);
-				Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				adminStage.hide();
-				adminStage.setScene(adminScene);
-				adminStage.show();
-			}catch(Exception e){
-				e.printStackTrace();
+				Parent companyParent = FXMLLoader.load(getClass().getClassLoader().getResource("View/choice.fxml"));
+				Scene companyScene = new Scene(companyParent);
+				Stage companyStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+				companyStage.hide();
+				companyStage.setScene(companyScene);
+				companyStage.show();
+			}catch(Exception ee){
+				ee.printStackTrace();
 			}
-			break;
-
-		case "etudiant":
-			try{
-				Parent adminParent = FXMLLoader.load(getClass().getResource("View/adminScene.fxml"));
-				Scene adminScene = new Scene(adminParent);
-				Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				adminStage.hide();
-				adminStage.setScene(adminScene);
-				adminStage.show();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			break;
-		}
-
-		/*
-	 * case "etudiant":
-			Stage primaryStage = new Stage();
-			try{
-				// localisation du fichier .fxml
-				URL url =getClass().getClassLoader().getResource("adminScene.fxml");
-
-				// création du loader
-				FXMLLoader fxmlLoader = new FXMLLoader(url);
-
-				// chargement du fxml
-				AnchorPane root = fxmlLoader.load();
-
-				// création de la Scene
-				//Parent adminParent = FXMLLoader.load(getClass().getResource());
-				Scene adminScene = new Scene(root);
-				primaryStage.setScene(adminScene);
-
-				}catch(Exception e){
-				e.printStackTrace();
-			}
-
-			((Node) event.getSource()).getScene().getWindow();
-			primaryStage.hide();
-			primaryStage.show();
-
-			break;
-		}
-
+		});
 	}
-
-	 */
-
-
-
-	/*
-	 * 
-	 * public boolean connect(String state, String id, String mdp){
-		boolean exist = false;
-
-		String sql = "SELECT * FROM " + state + " WHERE " + id + " AND passwrd = '" + mdp + "'" ;
-		Statement st;
-		try {
-			st = connection.createStatement();
-			ResultSet rs = st.executeQuery(sql);
-
-			while(rs.next()){
-				if(rs != null){
-					System.out.println("Existe");
-					System.out.println("Id:		" + rs.getInt("id"));
-					System.out.println("Nom:		" + rs.getString("name"));
-					exist = true;
-					}
-			}
-
-
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		System.out.println(exist);
-		return exist;
-
-	}
-	 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public int createUser(String nom, String mdp, String t, String m){
 		//User u = null;
@@ -380,123 +263,11 @@ public class LoginControler implements Initializable, interfaceControler{
 		}
 	}
 
-
-	/*public User search(int id , String mdp, boolean w){
-		User usr = null;
-
-		PreparedStatement statement = null;
-		String sql1 = "SELECT * FROM etudiant";
-		String sql2 = "SELECT * FROM entreprise";
-		System.out.println("avant");
-		if(w == true){
-			try{
-				statement = connection.prepareStatement(sql1);
-				ResultSet rs = (ResultSet) statement.executeQuery();
-				System.out.println("Load...");
-				while(rs.next()){
-					if((rs.getInt("id") == id)&&((rs.getString("passwrd").equals(mdp)))){
-						System.out.println("Connection en cours");
-						System.out.println("Bonjour " + rs.getString("nom"));
-						usr = new Etudiant(id, rs.getString("nom"), rs.getString("passwrd"),rs.getString("tel"), rs.getString("mail"), rs.getString("prenom"), rs.getString("filliaire"), rs.getInt("lvl"));
-					}
-				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		else{
-			try{
-				statement = connection.prepareStatement(sql2);
-				ResultSet rs = (ResultSet) statement.executeQuery();
-				System.out.println("Load...");
-				while(rs.next()){
-					if((rs.getInt("id") == id)&&((rs.getString("passwrd").equals(mdp)))){
-						System.out.println("Connection en cours");
-						System.out.println("Bonjour " + rs.getString("nom"));
-						usr = new Entreprise(id, rs.getString("nom"), rs.getString("passwrd"), rs.getString("ville"), rs.getString("rue"), rs.getInt("postal"), rs.getString("tel"), rs.getString("domaine"), rs.getString("mail"));
-					}
-				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		return usr;
-	}
-
-	 */
-
-
-
-	// fonction de connection et deconnection d'un utilisateur
-
-	/*public void connect(int id, String mdp, boolean w){
-		User user = search(id, mdp, w);
-		user.setState();
-	}
-	 */
-
-
-
-	@Override
-	public void createCompany(String nom, String mdp, String v, String r, int p, String t, String d, String m) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void deleteUser(int id) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void removeAllUsers(List<User> users) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void addOffer() {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void removeOffer() {
-		// TODO Auto-generated method stub
-
-	}
-
-
 	@Override
 	public void connect(int id, String mdp) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 
-	@Override
-	public void search(int id) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-
-
-
-
-
-
-
-	//@Override
-	/*public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-	 */
 }
